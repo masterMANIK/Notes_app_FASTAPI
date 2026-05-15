@@ -8,10 +8,11 @@ app = FastAPI(
 )
 
 # Import our routers
-from app.routes import auth
+from app.routes import auth, notes
 
 # Register routers
 app.include_router(auth.router)
+app.include_router(notes.router)
 
 # Define a root route
 @app.get("/")
