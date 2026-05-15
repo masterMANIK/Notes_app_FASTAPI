@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 
 # Initialize the FastAPI app
+##Just for a new commit
 app = FastAPI(
     title="Notes API",
     description="A production-ready Notes API built with FastAPI",
