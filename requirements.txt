@@ -1,11 +1,12 @@
 fastapi
+python-multipart
 uvicorn[standard]
 sqlalchemy
 psycopg[binary]
 alembic
-pydantic
+pydantic[email]
 pydantic-settings
-passlib[bcrypt]
+bcrypt
 python-jose[cryptography]
 python-dotenv
 pytest

@@ -7,6 +7,12 @@ app = FastAPI(
     version="1.0.0"
 )
 
+# Import our routers
+from app.routes import auth
+
+# Register routers
+app.include_router(auth.router)
+
 # Define a root route
 @app.get("/")
 def read_root():
