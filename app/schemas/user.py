@@ -1,4 +1,4 @@
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr, ConfigDict
 
 # Schema for when a user signs up
 class UserCreate(BaseModel):
@@ -11,8 +11,7 @@ class UserResponse(BaseModel):
     email: EmailStr
     is_active: bool
 
-    class Config:
-        from_attributes = True # This tells Pydantic to read data even if it is not a dict, but an ORM model.
+    model_config = ConfigDict(from_attributes=True)
 
 # Schema for the JWT Token
 class Token(BaseModel):

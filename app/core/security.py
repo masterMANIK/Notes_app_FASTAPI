@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import bcrypt
 from jose import jwt
 from app.config import settings
@@ -18,7 +18,7 @@ def get_password_hash(password: str) -> str:
 def create_access_token(data: dict) -> str:
     """Generate a JWT token for a user session."""
     to_encode = data.copy()
-    expire = datetime.utcnow() + timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES)
+    expire = datetime.now(timezone.utc) + timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES)
     to_encode.update({"exp": expire})
     
     # Encode the token using our secret key and algorithm from .env
